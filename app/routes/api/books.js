@@ -9,6 +9,7 @@
     var GetBookResource = require('../../resources/GetBookResource');
     var GetBooksResource = require('../../resources/GetBooksResource');
     var RemoveBookResource = require('../../resources/RemoveBookResource');
+    let PingResource = require("../../resources/PingResource");
 
 
 
@@ -18,6 +19,13 @@
         GetBooksResource(function (data) {
             res.send(data);
         });
+        /*
+        PingResource(function(data){
+            res.send(data);
+        })
+        */
+
+
     });
 
 

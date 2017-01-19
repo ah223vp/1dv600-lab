@@ -1,6 +1,7 @@
 (function () {
     "use strict";
 
+
     var fs = require('fs');
 
     // Instructions how to use the xml2js

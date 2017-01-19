@@ -4,7 +4,8 @@
     var LibraryDAO = require('../dao/LibraryDAO');
 
     module.exports = function (callback) {
-        callback('{"answer": "pong"}');
+        callback({"answer":"pong"
+            });
     };
 
 }());
