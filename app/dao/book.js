@@ -2,7 +2,7 @@
  * Created by Andreas on 2017-01-19.
  */
 
-function book(id, title, author, genre, publishDate, decription){
+function book(id, title, author, genre, publishDate, decription, price){
 
 return {
         id: id,
@@ -10,7 +10,8 @@ return {
         author: author,
         genre: genre,
         publishDate: publishDate,
-        description: decription
+        description: decription,
+        price: price
     }
 }
 

@@ -19,11 +19,7 @@
         GetBooksResource(function (data) {
             res.send(data);
         });
-        /*
-        PingResource(function(data){
-            res.send(data);
-        })
-        */
+
 
 
     });
