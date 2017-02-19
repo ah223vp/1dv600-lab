@@ -28,7 +28,7 @@
     router.put('/', function (req, res) {
         res.type('json');
 
-        AddBookResource(function () {
+        AddBookResource(req.body, function () {
             res.send("{}");
         });
     });

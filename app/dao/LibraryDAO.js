@@ -7,8 +7,7 @@
     // Instructions how to use the xml2js
     // https://github.com/Leonidas-from-XIV/node-xml2js
     var xml2js = require('xml2js');
-    let xml = './books.xml';
-    let parsedChilds;
+    let xmlFile = './books.xml';
 
 
     // Use this file to write and read the xml file.
@@ -25,34 +24,37 @@
 
             let parser = new xml2js.Parser({mergeAttrs:true, explicitArray:false});
             // Main part of read and parsecode from https://github.com/Leonidas-from-XIV/node-xml2js.
-            fs.readFile(xml, function(err, data) {
+            fs.readFile(xmlFile, function(err, data) {
                 parser.parseString(data, function (err, result) {
-                   //console.log(JSON.stringify(result));
-                   //console.log('Done');
                     /*
                     Result to be returned via the callback.
                     Directly stringifying the book objects children.
                      */
-                    parsedChilds = result.catalog.book;
-                   callback(JSON.stringify(result.catalog.book));
+                    callback({
+                        parsed: JSON.stringify(result.catalog.book),
+                        unParsed: result
+                    });
                 });
             });
-
         },
 
-        // Write the entire file from the file system.
+        /**
+         * Write a new File to the system. If the file already exists it will be overwritten.
+         * @param data BookObject that will be build to XML -> books.xml
+         */
         writeXMLFile: function(data) {
+            let obj = data;
+            let builder = new xml2js.Builder({rootName:"catalog"});
+            let xml = builder.buildObject(obj);
 
-        },
-        deleteXML: function(id){
-            for(let i = 0; i < parsedChilds.length; i++){
-                if(parsedChilds[i].id == id){
-                    parsedChilds.splice(i, 1);
+            fs.writeFile(xmlFile, xml, (err) => {
+                if (err){
+                    console.log(err);
                 }
-            }
-
-            console.log(parsedChilds);
+                console.log("skrev till fil");
+            })
         }
+
     };
 
     module.exports = LibraryDAO;
