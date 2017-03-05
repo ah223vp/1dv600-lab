@@ -37,7 +37,7 @@
             }else {
                 callback(XMLFile.parsed);
             }
-            console.log("Läser fil books.xml");
+           // console.log("Läser fil books.xml");
         });
 
 

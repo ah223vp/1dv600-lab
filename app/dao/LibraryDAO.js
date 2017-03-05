@@ -51,7 +51,7 @@
                 if (err){
                     console.log(err);
                 }
-                console.log("skrev till fil");
+               // console.log("skrev till fil");
             })
         }
 
