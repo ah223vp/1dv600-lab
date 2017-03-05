@@ -9,7 +9,36 @@ var AddBookResource = require("../app/resources/AddBookResource");
  * This part is not implemented yet, therefore the tests are just mocks.
  * They are created from the testcase and will look like this once the implementation is
  * complete.
+ *
+ * Set the XMLfile in LabraryDao
+ * to test.xml file when testing. To simplify, it will only contain one or two book objects.
  */
+
+var objBook = {
+    "id" : "5",
+    "author" : "Emma",
+    "title" : "The shanghai",
+    "genre" : "fantasy",
+    "price" : "100",
+    "publish_date" : "1951-08-21",
+    "description": "testBook"};
+
+var newObj = [
+    {"id" : "3",
+        "author" : "Emma",
+        "title" : "The shanghai",
+        "genre" : "fantasy",
+        "price" : "100",
+        "publish_date" : "1951-08-21",
+        "description": "testBook"},
+    {"id" : "5",
+        "author" : "Emma",
+        "title" : "The shanghai",
+        "genre" : "fantasy",
+        "price" : "100",
+        "publish_date" : "1951-08-21",
+        "description": "testBook"}];
+
 
 describe("Add Books", function () {
 
@@ -17,26 +46,10 @@ describe("Add Books", function () {
 
         it("describe..", function () {
 
-            var result = AddBookResource("2");
+            AddBookResource(objBook, callback);
 
-            // Mock JSON to use
-            var obj = {
-                "aa": "a",
-                "bb": "b"
-            };
+            expect(callback).to.equal(newObj);
 
-            var addedItem = {"cc": "c"};
-
-            var newObj = {
-                "aa": "a",
-                "bb": "b",
-                "cc": "c"
-            };
-
-
-            expect(result).to.equal(undefined);
-            //expect(result).to.equal(obj);
-            //expect(result).to.equal(newObj);
 
         });
     });

@@ -8,7 +8,7 @@
      */
 
     module.exports = function (id, callbacks) {
-        console.log(id);
+
         LibraryDAO.readXMLFile(function(callback){
 
             let nonParsedFile = callback.unParsed;

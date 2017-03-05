@@ -15,21 +15,21 @@ describe("PUT Books Resource", function () {
         it("Testing for 200", function (done) {
 
             request(app)
-                .put('/api/books')
+                .put('/api')
                 .set('Accept', 'application/json')
-                .send({
-                    "aa" :"a"
-                })
-                .expect(200, done());
+                .send({})
+                .expect({}, done)
+
 
         });
 
         it("Testing for 404", function(done){
             request(app)
-                .put('/api/books/')
+                .put('/api/')
                 .set('Accept', 'application/json')
                 .send()
-                .expect(404, done());
+                .expect(404, done)
+
         })
 
     });
