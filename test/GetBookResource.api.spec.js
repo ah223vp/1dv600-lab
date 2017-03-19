@@ -14,15 +14,15 @@ describe("GET Book Resource", function () {
         it("Testing for 200", function (done) {
 
             request(app)
-                .get('/api/books' + "3")
+                .get('/api/books/' + "3")
                 .set('Accept', 'application/json')
-                .expect({}, done);
+                .expect(200, done);
 
         });
 
         it("Testing for 404", function(done){
             request(app)
-                .get('/api/books' + "3")
+                .get('/api/bookss/' + "3")
                 .set('Accept', 'application/json')
                 .expect(404, done);
         })

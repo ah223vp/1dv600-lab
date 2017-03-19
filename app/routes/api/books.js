@@ -16,11 +16,15 @@
     router.get('/', function (req, res) {
         res.type('json');
 
-        GetBooksResource(function (data) {
-            res.send(data);
-        });
-
-
+        if(req.query.title === undefined){
+            GetBooksResource(function (data) {
+                res.send(data);
+            });
+        }else{
+            GetBookResource(req.query.title, function(data){
+                res.send(data);
+            } )
+        }
 
     });
 
@@ -36,8 +40,11 @@
 
     router.route('/:bookId')
         .get(function (req, res) {
+
+
             res.type('json');
             GetBookResource(req.params.bookId, function (data) {
+
                 res.send(data);
             });
         })

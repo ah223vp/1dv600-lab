@@ -14,10 +14,10 @@ describe("POST Books Resource", function () {
         it("Testing for 200", function (done) {
 
             request(app)
-                .post('/api/books' + "3")
+                .post('/api/books/' + "3")
                 .set('Accept', 'application/json')
                 .send({})
-                .expect({}, done)
+                .expect(200, {}, done)
 
         });
 

@@ -15,10 +15,10 @@ describe("PUT Books Resource", function () {
         it("Testing for 200", function (done) {
 
             request(app)
-                .put('/api')
+                .put('/api/books')
                 .set('Accept', 'application/json')
                 .send({})
-                .expect({}, done)
+                .expect(200, {}, done)
 
 
         });
