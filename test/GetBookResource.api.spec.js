@@ -6,7 +6,7 @@ var request = require('supertest');
 
 var app = require("../app");
 
-
+/*
 describe("GET Book Resource", function () {
 
     describe("GET /api/books", function () {
@@ -32,5 +32,7 @@ describe("GET Book Resource", function () {
 
     });
 });
+*/
+
 
 

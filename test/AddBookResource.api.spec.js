@@ -17,8 +17,8 @@ describe("PUT Books Resource", function () {
             request(app)
                 .put('/api/books')
                 .set('Accept', 'application/json')
-                .send({})
-                .expect(200, {}, done)
+                .send()
+                .expect(200, done)
 
 
         });

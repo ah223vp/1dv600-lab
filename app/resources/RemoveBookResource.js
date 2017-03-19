@@ -2,14 +2,18 @@
     "use strict";
 
     var LibraryDAO = require('../dao/LibraryDAO');
+    let xmlFile = './books.xml';
 
     /**
      * Callback function to receive the returned parsed File.
      */
 
-    module.exports = function (id, callbacks) {
+    module.exports = function (id, callbacks, file) {
+        if(file == undefined){
+            file = xmlFile;
+        }
 
-        LibraryDAO.readXMLFile(function(callback){
+        LibraryDAO.readXMLFile(file ,function(callback){
 
             let nonParsedFile = callback.unParsed;
             for(let i = 0; i < nonParsedFile.catalog.book.length; i++){
@@ -23,7 +27,7 @@
                 nonParsedFile.catalog = "";
             }
             // Calling the write method
-            callbacks(LibraryDAO.writeXMLFile(nonParsedFile.catalog));
+            callbacks(LibraryDAO.writeXMLFile(file, nonParsedFile.catalog));
 
 
         });

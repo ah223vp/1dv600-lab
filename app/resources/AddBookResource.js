@@ -2,6 +2,7 @@
     "use strict";
 
     var LibraryDAO = require('../dao/LibraryDAO');
+    let xmlFile = './books.xml';
 
     /**
      * Function for adding book to the list. Reading the current file and pushing
@@ -9,12 +10,16 @@
      * current highest id.
      * @param data Book to add
      * @param callbacks Callback response
+     * @param file to use, mock or actual
      */
 
 
-    module.exports = function (data, callbacks) {
+    module.exports = function (data, callbacks, file) {
+        if(file == undefined){
+            file = xmlFile;
+        }
 
-        LibraryDAO.readXMLFile(function(callback){
+        LibraryDAO.readXMLFile(file, function(callback){
             console.log("Add");
 
             let newObj = callback.unParsed;
@@ -37,7 +42,7 @@
             };
             newObj.catalog.book.push(obj);
             // Sending response with write method.
-            callbacks(LibraryDAO.writeXMLFile(newObj.catalog));
+            callbacks(LibraryDAO.writeXMLFile(file, newObj.catalog));
         })
 
 

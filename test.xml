@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<catalog>
+  <book>
+    <id>1</id>
+    <author>Andreas</author>
+    <title>Hund</title>
+    <genre>Science Ficition</genre>
+    <price>164</price>
+    <description>apa</description>
+  </book>
+  <book>
+    <id>2</id>
+    <author>Isaac Asimov</author>
+    <title>Foundation and Empire</title>
+    <genre>Science Ficition</genre>
+    <price>79</price>
+    <publish_date>1952-10-12</publish_date>
+    <description>apa</description>
+  </book>
+</catalog>
